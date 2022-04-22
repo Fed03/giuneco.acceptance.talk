@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{0DFEFD06-0899-41EF-BAAE-36D564E5A628}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DE416A95-513A-4A7B-9D42-50D4678081E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPages.Test", "Tests\RazorPages.Test\RazorPages.Test.csproj", "{ACC0F33F-4916-4C36-939F-706F2DFBB11A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,12 @@ Global
 		{0DFEFD06-0899-41EF-BAAE-36D564E5A628}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DFEFD06-0899-41EF-BAAE-36D564E5A628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DFEFD06-0899-41EF-BAAE-36D564E5A628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC0F33F-4916-4C36-939F-706F2DFBB11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC0F33F-4916-4C36-939F-706F2DFBB11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC0F33F-4916-4C36-939F-706F2DFBB11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC0F33F-4916-4C36-939F-706F2DFBB11A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACC0F33F-4916-4C36-939F-706F2DFBB11A} = {DE416A95-513A-4A7B-9D42-50D4678081E8}
 	EndGlobalSection
 EndGlobal
