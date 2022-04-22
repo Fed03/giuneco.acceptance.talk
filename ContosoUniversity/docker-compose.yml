@@ -1,6 +1,15 @@
-﻿version: '3.3'
+﻿version: '3.9'
 services:
+  webapi:
+    build:
+      context: ..
+      dockerfile: ContosoUniversity/Dockerfile
+    depends_on:
+      - mssql
+    ports:
+      - '8080:80'
   mssql:
+    hostname: mssql
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=123Stella
