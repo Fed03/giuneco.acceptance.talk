@@ -25,10 +25,10 @@ internal class DockerComposeHelper
                                .UseCompose()
                                .FromFile(_configuration["DockerFilePath"])
                                .RemoveOrphans()
+                               .ForceBuild()
                                .WaitForHttp(
                                    _configuration["ServiceName"],
-                                   healthUrl.ToString(),
-                                   continuation: (response, _) => response.Body == "Healthy" ? 0 : -1
+                                   healthUrl.ToString()
                                )
                                .Build()
                                .Start();
