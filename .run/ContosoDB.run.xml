@@ -12,7 +12,7 @@
             </DockerEnvVarImpl>
             <DockerEnvVarImpl>
               <option name="name" value="SA_PASSWORD" />
-              <option name="value" value=" 123Stella" />
+              <option name="value" value="123Stella"/>
             </DockerEnvVarImpl>
           </list>
         </option>

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
 using Ductus.FluentDocker.Builders;
 using Ductus.FluentDocker.Services;
 using Flurl;
@@ -23,17 +26,29 @@ internal class DockerComposeHelper
         var compositeService = new Builder()
                                .UseContainer()
                                .UseCompose()
-                               .FromFile(_configuration["DockerFilePath"])
+                               .FromFile(FindDockerFile())
                                .RemoveOrphans()
                                .ForceBuild()
                                .WaitForHttp(
-                                   _configuration["ServiceName"],
-                                   healthUrl.ToString()
+                                   _configuration["ContainerName"],
+                                   healthUrl.ToString(),
+                                   continuation: (response, _) => response.Code == HttpStatusCode.OK ? 0 : 300
                                )
                                .Build()
                                .Start();
 
         return new ComposedService(compositeService);
+    }
+
+    private string FindDockerFile()
+    {
+        var directory = Directory.GetCurrentDirectory();
+        while (!Directory.EnumerateFiles(directory!, _configuration["DockerFileName"]).Any())
+        {
+            directory = Path.GetDirectoryName(directory);
+        }
+
+        return Path.Join(directory, _configuration["DockerFileName"]);
     }
 
     internal class ComposedService : IDisposable

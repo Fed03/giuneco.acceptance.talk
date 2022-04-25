@@ -2,7 +2,7 @@
 services:
   webapi:
     build:
-      context: ..
+      context: ../..
       dockerfile: ContosoUniversity/Dockerfile
     depends_on:
       - mssql
