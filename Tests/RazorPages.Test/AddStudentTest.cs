@@ -8,8 +8,8 @@ using Xunit;
 
 namespace RazorPages.Test;
 
-[Trait("Category", "Acceptance")]
-public class AddStudentTest : IClassFixture<TestContext>, IAsyncLifetime
+// [Trait("Category", "Acceptance")]
+/*public class AddStudentTest : IClassFixture<TestContext>, IAsyncLifetime
 {
     private IPlaywright _playwright = null!;
     private IBrowser _browser = null!;
@@ -58,6 +58,7 @@ public class AddStudentTest : IClassFixture<TestContext>, IAsyncLifetime
     }
 }
 
+*/
 public static class ILocatorEx
 {
     public static async Task<IReadOnlyList<ILocator>> GetAll(this ILocator loc)
