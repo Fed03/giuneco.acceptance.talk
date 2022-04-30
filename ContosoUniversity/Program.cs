@@ -1,6 +1,5 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ContosoUniversity.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +39,7 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<SchoolContext>();
     context.Database.EnsureCreated();
-    DbInitializer.Initialize(context);
+    // DbInitializer.Initialize(context);
 }
 
 app.UseHttpsRedirection();

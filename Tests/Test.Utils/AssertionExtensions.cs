@@ -7,7 +7,7 @@ namespace Test.Utils;
 
 public static class AssertionExtensions
 {
-    public static AndWhichConstraint<GenericCollectionAssertions<T>, T> ContainSingleMatching<T>(
+    public static async Task<AndWhichConstraint<GenericCollectionAssertions<T>, T>> ContainSingleMatching<T>(
         this GenericCollectionAssertions<T> ass,
         Func<T, Task> matcher,
         string because = "",
@@ -40,26 +40,30 @@ public static class AssertionExtensions
             string[] failures;
             using (var collScope = new AssertionScope())
             {
-                matcherResults = actualItems.Select(
-                    (element, index) =>
-                    {
-                        using var itemScope = new AssertionScope();
-
-                        matcher(element).Wait();
-                        var errors = itemScope.Discard();
-
-                        if (errors.Length > 0)
+                matcherResults = await Task.WhenAll(
+                    actualItems.Select(
+                        async (element, index) =>
                         {
-                            var itemFailures = string.Join(
-                                Environment.NewLine,
-                                errors.Select(x => x.IndentLines().TrimEnd('.'))
-                            );
-                            collScope.AddPreFormattedFailure($"At index {index}:{Environment.NewLine}{itemFailures}");
-                        }
+                            using var itemScope = new AssertionScope();
 
-                        return (Item: element, Failed: errors.Any());
-                    }
-                ).ToArray();
+                            await matcher(element);
+                            var errors = itemScope.Discard();
+
+                            if (errors.Length > 0)
+                            {
+                                var itemFailures = string.Join(
+                                    Environment.NewLine,
+                                    errors.Select(x => x.IndentLines().TrimEnd('.'))
+                                );
+                                collScope.AddPreFormattedFailure(
+                                    $"At index {index}:{Environment.NewLine}{itemFailures}"
+                                );
+                            }
+
+                            return (Item: element, Failed: errors.Any());
+                        }
+                    ).ToArray()
+                );
                 failures = collScope.Discard();
             }
 

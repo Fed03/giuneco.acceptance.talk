@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using BoDi;
 using Microsoft.Extensions.Configuration;
@@ -27,11 +23,7 @@ public sealed class TestContextHook
     public async Task BeforeStudentCreationScenario(IObjectContainer container)
     {
         var playwright = await Playwright.CreateAsync();
-        var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-        {
-            Headless = false,
-            SlowMo = 2000
-        });
+        var browser = await playwright.Chromium.LaunchAsync();
         var pageObj = new StudentCreatePage(
             await browser.NewContextAsync(
                 new BrowserNewContextOptions
@@ -40,7 +32,7 @@ public sealed class TestContextHook
                 }
             )
         );
-        
+
         container.RegisterInstanceAs(playwright);
         container.RegisterInstanceAs(browser);
         container.RegisterInstanceAs(pageObj);
