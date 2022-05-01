@@ -11,16 +11,19 @@ public class StudentCreatePage : BasePageObject
     {
     }
 
-    protected override string PagePath => "Students/Create";
+    public override string PagePath => "Students/Create";
 
-    public async Task FillFirstName(string name) => await Page.FillAsync("#Student_FirstMidName", name);
-    public async Task FillLastName(string name) => await Page.FillAsync("#Student_LastName", name);
+    public Task FillFirstName(string name) => Page.FillAsync("#Student_FirstMidName", name);
+    public Task FillLastName(string name) => Page.FillAsync("#Student_LastName", name);
 
-    public async Task FillEnrollmentDate(DateTime date) =>
-        await Page.FillAsync("#Student_EnrollmentDate", date.ToString("s"));
+    public Task FillEnrollmentDate(DateTime date) =>
+        Page.FillAsync("#Student_EnrollmentDate", date.ToString("s"));
 
-    public async Task SubmitRegistration() => await Page.ClickAsync("input[type=submit]");
+    public Task SubmitRegistration() => Page.ClickAsync("input[type=submit]");
 
     public string CurrentUrl => Page.Url;
-    public async Task<IReadOnlyList<ILocator>> GetTableRows() => await Page.Locator("table tr").GetAll();
+    public Task<IReadOnlyList<ILocator>> GetTableRows() => Page.Locator("table tr").GetAll();
+
+    public Task<IReadOnlyList<string>> GetValidationErrors() =>
+        Page.Locator(".validation-msg-container").AllInnerTextsAsync();
 }
