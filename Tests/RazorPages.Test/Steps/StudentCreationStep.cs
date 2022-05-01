@@ -13,9 +13,9 @@ public class StudentCreationStep
     private const string FIRST_NAME = "Federico";
     private const string LAST_NAME = "Teotini";
     private static readonly DateTime ENROLLMENT_DATE = new(2022, 05, 11, 11, 45, 0);
-    private readonly StudentCreatePage _page;
+    private readonly CreateStudentPage _page;
 
-    public StudentCreationStep(StudentCreatePage page)
+    public StudentCreationStep(CreateStudentPage page)
     {
         _page = page;
     }

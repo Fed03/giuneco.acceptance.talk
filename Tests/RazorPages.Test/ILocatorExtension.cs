@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Microsoft.Playwright;
-using Test.Utils;
-using Xunit;
 
 namespace RazorPages.Test;
 
@@ -59,7 +56,7 @@ namespace RazorPages.Test;
 }
 
 */
-public static class ILocatorEx
+public static class ILocatorExtension
 {
     public static async Task<IReadOnlyList<ILocator>> GetAll(this ILocator loc)
     {

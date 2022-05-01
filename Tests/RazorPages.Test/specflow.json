@@ -1,0 +1,7 @@
+﻿{
+    "generator": {
+        "addNonParallelizableMarkerForTags": [
+            "Acceptance"
+        ]
+    }
+}

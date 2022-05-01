@@ -5,9 +5,9 @@ using Microsoft.Playwright;
 
 namespace RazorPages.Test.PageObjects;
 
-public class StudentCreatePage : BasePageObject
+public class CreateStudentPage : BasePageObject
 {
-    public StudentCreatePage(IBrowserContext browser) : base(browser)
+    public CreateStudentPage(IBrowserContext browser) : base(browser)
     {
     }
 
