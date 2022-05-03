@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 
-namespace RazorPages.Test.PageObjects;
+namespace Acceptance.Tests.PageObjects;
 
 public class CreateStudentPage : BasePageObject
 {

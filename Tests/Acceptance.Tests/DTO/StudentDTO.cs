@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorPages.Test.DTO;
+namespace Acceptance.Tests.DTO;
 
 internal class StudentDTO
 {

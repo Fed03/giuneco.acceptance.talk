@@ -38,13 +38,4 @@
         <ProjectReference Include="..\Test.Utils\Test.Utils.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="Features\StudentCreation.feature.cs">
-        <DependentUpon>StudentCreation.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-    </ItemGroup>
-
 </Project>

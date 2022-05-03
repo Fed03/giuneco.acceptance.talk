@@ -1,6 +1,7 @@
 ﻿version: '3.9'
+name: cu-test
 services:
-  webapi:
+  webapp:
     build:
       context: ../..
       dockerfile: ContosoUniversity/Dockerfile

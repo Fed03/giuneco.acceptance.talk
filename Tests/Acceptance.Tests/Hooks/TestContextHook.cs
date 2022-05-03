@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
+using Acceptance.Tests.PageObjects;
 using BoDi;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright;
-using RazorPages.Test.PageObjects;
 using Respawn;
 using TechTalk.SpecFlow;
 
-namespace RazorPages.Test;
+namespace Acceptance.Tests.Hooks;
 
 [Binding]
 public sealed class TestContextHook

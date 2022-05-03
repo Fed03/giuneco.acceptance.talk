@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 
-namespace RazorPages.Test;
+namespace Acceptance.Tests;
 
 public class TestContext : IDisposable
 {

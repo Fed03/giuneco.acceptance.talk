@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 
-namespace RazorPages.Test;
+namespace Acceptance.Tests;
 
 // [Trait("Category", "Acceptance")]
 /*public class AddStudentTest : IClassFixture<TestContext>, IAsyncLifetime

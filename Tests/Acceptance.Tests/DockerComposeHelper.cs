@@ -7,7 +7,7 @@ using Ductus.FluentDocker.Services;
 using Flurl;
 using Microsoft.Extensions.Configuration;
 
-namespace RazorPages.Test;
+namespace Acceptance.Tests;
 
 internal class DockerComposeHelper
 {

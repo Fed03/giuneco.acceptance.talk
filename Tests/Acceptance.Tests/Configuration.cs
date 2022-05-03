@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace RazorPages.Test;
+namespace Acceptance.Tests;
 
 internal static class Configuration
 {

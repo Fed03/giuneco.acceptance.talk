@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Acceptance.Tests.DTO;
+using Acceptance.Tests.PageObjects;
 using FluentAssertions;
-using RazorPages.Test.DTO;
-using RazorPages.Test.PageObjects;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Test.Utils;
 
-namespace RazorPages.Test.Steps;
+namespace Acceptance.Tests.Steps;
 
 [Binding]
 public class ListEnrolledStudentsStep

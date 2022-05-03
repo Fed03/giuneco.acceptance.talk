@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
+using Acceptance.Tests.PageObjects;
 using FluentAssertions;
-using RazorPages.Test.PageObjects;
 using TechTalk.SpecFlow;
 using Test.Utils;
 
-namespace RazorPages.Test.Steps;
+namespace Acceptance.Tests.Steps;
 
 [Binding]
 public class StudentCreationStep
