@@ -16,7 +16,6 @@ builder.Services.AddDbContext<SchoolContext>(
 );
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -50,7 +49,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
-app.MapHealthChecks("/health");
 
 app.Run();
