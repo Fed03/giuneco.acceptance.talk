@@ -23,4 +23,7 @@ public class CreateStudentPage : BasePageObject
 
     public string CurrentUrl => Page.Url;
     public Task<IReadOnlyList<ILocator>> GetTableRows() => Page.Locator("table tr").GetAll();
+
+    public Task<IReadOnlyList<string>> GetValidationErrors() =>
+        Page.Locator(".validation-msg-container").AllInnerTextsAsync();
 }

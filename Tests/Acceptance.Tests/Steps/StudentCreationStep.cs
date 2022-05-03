@@ -61,4 +61,11 @@ public class StudentCreationStep
             }
         );
     }
+
+    [Then(@"the registration form should expose a validation error")]
+    public async Task ThenTheRegistrationFormShouldExposeAValidationError()
+    {
+        _page.CurrentUrl.Should().EndWith(_page.PagePath);
+        (await _page.GetValidationErrors()).Should().ContainMatch("*EnrollmentDate*required*");
+    }
 }
