@@ -1,3 +1,5 @@
+@Acceptance
+@StudentCreation
 Feature: Student Creation
 
 Scenario: Registering a new Student
