@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Acceptance.Tests.PageObjects;
 using BoDi;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright;
@@ -23,7 +24,8 @@ public sealed class TestContextHook
     [BeforeScenario("StudentCreation")]
     public async Task BeforeStudentCreationScenario(IObjectContainer container)
     {
-        await SetupBrowserContext(container);
+        var browserContext = await SetupBrowserContext(container);
+        container.RegisterInstanceAs(new CreateStudentPage(browserContext));
     }
 
     [AfterScenario]
