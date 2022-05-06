@@ -20,12 +20,20 @@ public sealed class TestContextHook
         _composedService = new DockerComposeHelper(_configuration).Start();
     }
 
-
     [BeforeScenario("StudentCreation")]
     public async Task BeforeStudentCreationScenario(IObjectContainer container)
     {
         var browserContext = await SetupBrowserContext(container);
         container.RegisterInstanceAs(new CreateStudentPage(browserContext));
+    }
+
+    [BeforeScenario("ListEnrolledStudents")]
+    public async Task BeforeListEnrolledStudentsScenario(IObjectContainer container)
+    {
+        var browserContext = await SetupBrowserContext(container);
+
+        container.RegisterInstanceAs(new CreateStudentPage(browserContext));
+        container.RegisterInstanceAs(new StudentsPage(browserContext));
     }
 
     [AfterScenario]
