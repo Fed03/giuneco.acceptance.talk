@@ -3,6 +3,7 @@ using Acceptance.Tests.PageObjects;
 using BoDi;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright;
+using Respawn;
 using TechTalk.SpecFlow;
 
 namespace Acceptance.Tests.Hooks;
@@ -11,6 +12,7 @@ namespace Acceptance.Tests.Hooks;
 public sealed class TestContextHook
 {
     private static readonly IConfiguration _configuration = Configuration.Load();
+    private static readonly Checkpoint _checkpoint = new();
 
     private static DockerComposeHelper.ComposedService? _composedService;
 
@@ -18,6 +20,12 @@ public sealed class TestContextHook
     public static void DockerComposeUp()
     {
         _composedService = new DockerComposeHelper(_configuration).Start();
+    }
+
+    [BeforeScenario]
+    public async Task BeforeScenario()
+    {
+        await _checkpoint.Reset(_configuration.GetConnectionString("SchoolContext"));
     }
 
     [BeforeScenario("StudentCreation")]
