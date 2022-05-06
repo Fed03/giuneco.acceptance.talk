@@ -12,4 +12,6 @@ public class StudentsPage : BasePageObject
     public override string PagePath => "Students";
 
     public ILocator GetTable() => Page.Locator("table");
+
+    public Task<string> GetMessage() => Page.Locator(".table-wrapper").InnerTextAsync();
 }

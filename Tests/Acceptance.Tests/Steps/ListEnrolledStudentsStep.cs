@@ -74,4 +74,21 @@ public class ListEnrolledStudentsStep
             );
         }
     }
+
+    [Given(@"there are no enrolled student yet")]
+    public void GivenThereAreNoEnrolledStudentYet()
+    {
+    }
+
+    [Then(@"the table is hidden")]
+    public async Task ThenTheTableIsHidden()
+    {
+        (await _studentsPage.GetTable().IsHiddenAsync()).Should().BeTrue();
+    }
+
+    [Then(@"a simple message is shown")]
+    public async Task ThenASimpleMessageIsShown()
+    {
+        (await _studentsPage.GetMessage()).Should().Be("No students are enrolled yet!");
+    }
 }
